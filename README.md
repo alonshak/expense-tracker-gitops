@@ -1,3 +1,6 @@
 # expense-tracker-gitops
 
-GitOps repository: desired state only (staging/production), watched by ArgoCD.
+GitOps repository watched by ArgoCD.
+Contains desired state only:
+- Separate environments: staging, production
+- Helm values + image tags only (no app code)
