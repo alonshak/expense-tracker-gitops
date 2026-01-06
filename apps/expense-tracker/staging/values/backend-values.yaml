@@ -1,0 +1,15 @@
+image:
+  repository: <ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/expense-tracker-backend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+
+env:
+  DATABASE_HOST: expense-tracker-postgres
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: expense_db
+  DATABASE_USER: expense_user
+  DATABASE_PASSWORD: expense_pass
