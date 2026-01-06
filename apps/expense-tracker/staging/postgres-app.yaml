@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: expense-tracker-postgres
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/alonshak/expense-tracker-gitops.git
+    targetRevision: main
+    path: charts/postgres
+    helm:
+      valueFiles:
+        - ../../apps/expense-tracker/staging/values/postgres-values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
