@@ -1,0 +1,9 @@
+replicaCount: 1
+
+image:
+  repository: backend
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 5000
