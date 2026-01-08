@@ -1,5 +1,5 @@
 image:
-  repository: <ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/expense-tracker-backend
+  repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-backend
   tag: latest
   pullPolicy: IfNotPresent
 
