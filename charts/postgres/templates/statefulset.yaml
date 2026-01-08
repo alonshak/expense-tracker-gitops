@@ -13,6 +13,8 @@ spec:
       labels:
         app: postgres
     spec:
+      securityContext:
+        fsGroup: 999
       containers:
         - name: postgres
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -20,7 +22,7 @@ spec:
             - containerPort: {{ .Values.service.port }}
           env:
             - name: PGDATA
-              value: /var/lib/postgresql/data/postgres
+              value: /var/lib/postgresql/postgres
             - name: POSTGRES_DB
               value: {{ .Values.env.POSTGRES_DB | quote }}
             - name: POSTGRES_USER
@@ -29,7 +31,7 @@ spec:
               value: {{ .Values.env.POSTGRES_PASSWORD | quote }}
           volumeMounts:
             - name: data
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql
               subPath: postgres
   volumeClaimTemplates:
     - metadata:

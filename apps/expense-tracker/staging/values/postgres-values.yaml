@@ -1,3 +1,13 @@
+image:
+  repository: postgres
+  tag: "15"
+
+service:
+  port: 5432
+
+persistence:
+  size: 5Gi
+
 env:
   POSTGRES_DB: expense_db
   POSTGRES_USER: expense_user
