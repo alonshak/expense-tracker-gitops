@@ -8,6 +8,7 @@ service:
   port: 5000
 
 env:
+  DATABASE_URL: postgresql://expense_user:expense_pass@expense-tracker-postgres:5432/expense_db
   DATABASE_HOST: expense-tracker-postgres
   DATABASE_PORT: "5432"
   DATABASE_NAME: expense_db
