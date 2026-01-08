@@ -16,4 +16,9 @@ spec:
         - name: backend
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: {{ .Values.service.port }}
+            - containerPort: {{ .Values.service.port }}  
+          env:
+            - name: DATABASE_HOST
+              value: {{ .Values.env.DATABASE_HOST | quote }}
+            - name: DATABASE_NAME
+              value: {{ .Values.env.DATABASE_NAME | quote }}
