@@ -18,6 +18,8 @@ spec:
           ports:
             - containerPort: {{ .Values.service.port }}  
           env:
+            - name: DATABSE_URL
+              value: {{ .Values.env.DATABASE_URL | quote }}
             - name: DATABASE_HOST
               value: {{ .Values.env.DATABASE_HOST | quote }}
             - name: DATABASE_NAME
