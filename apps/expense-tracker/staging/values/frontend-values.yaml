@@ -1,5 +1,7 @@
+replicaCount: 1
+
 image:
-  repository: <ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/expense-tracker-frontend
+  repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-frontend
   tag: latest
   pullPolicy: IfNotPresent
 
