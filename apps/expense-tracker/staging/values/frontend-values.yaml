@@ -8,3 +8,10 @@ image:
 service:
   type: ClusterIP
   port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: staging.al-shak.online
+  path: /
+  pathType: Prefix
