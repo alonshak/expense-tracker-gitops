@@ -1,17 +1,18 @@
-replicaCount: 1
+frontend:
+  replicaCount: 1
 
-image:
-  repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-frontend
-  tag: latest
-  pullPolicy: IfNotPresent
+  image:
+    repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
 
-service:
-  type: ClusterIP
-  port: 80
+  service:
+    type: ClusterIP
+    port: 80
 
-ingress:
-  enabled: true
-  className: nginx
-  host: staging.al-shak.online
-  path: /
-  pathType: Prefix
+  ingress:
+    enabled: true
+    className: nginx
+    host: staging.al-shak.online
+    path: /
+    pathType: Prefix

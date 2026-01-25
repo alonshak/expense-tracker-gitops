@@ -1,15 +1,16 @@
-image:
-  repository: postgres
-  tag: "15"
+postgres:
+  image:
+    repository: postgres
+    tag: "15"
 
-service:
-  port: 5432
+  service:
+    port: 5432
 
-persistence:
-  enabled: true
-  size: 5Gi
+  persistence:
+    enabled: true
+    size: 5Gi
 
-env:
-  POSTGRES_DB: expense_db
-  POSTGRES_USER: expense_user
-  POSTGRES_PASSWORD: expense_pass
+  env:
+    POSTGRES_DB: expense_db
+    POSTGRES_USER: expense_user
+    POSTGRES_PASSWORD: expense_pass

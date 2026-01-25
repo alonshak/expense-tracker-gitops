@@ -1,11 +1,15 @@
 backend:
+  replicaCount: 1
+
   image:
     repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-backend
     tag: latest
     pullPolicy: IfNotPresent
+
   service:
     type: ClusterIP
     port: 5000
+
   env:
     DATABASE_URL: postgresql://expense_user:expense_pass@postgres:5432/expense_db
     DATABASE_HOST: postgres
@@ -13,27 +17,3 @@ backend:
     DATABASE_NAME: expense_db
     DATABASE_USER: expense_user
     DATABASE_PASSWORD: expense_pass
-
-frontend:
-  replicaCount: 1
-  image:
-    repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-frontend
-    tag: latest
-    pullPolicy: IfNotPresent
-  service:
-    type: ClusterIP
-    port: 80
-
-postgres:
-  image:
-    repository: postgres
-    tag: "15"
-  service:
-    port: 5432
-  persistence:
-    enabled: true
-    size: 5Gi
-  env:
-    POSTGRES_DB: expense_db
-    POSTGRES_USER: expense_user
-    POSTGRES_PASSWORD: expense_pass
