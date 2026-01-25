@@ -1,17 +1,23 @@
-{{- if .Values.ingress.enabled }}
+{{- $ing := .Values.ingress | default dict -}}
+{{- if (default false $ing.enabled) }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend
+  {{- if $ing.className }}
   annotations:
-    kubernetes.io/ingress.class: {{ .Values.ingress.className | quote }}
+    kubernetes.io/ingress.class: {{ $ing.className | quote }}
+  {{- end }}
 spec:
+  {{- if $ing.className }}
+  ingressClassName: {{ $ing.className | quote }}
+  {{- end }}
   rules:
-    - host: {{ .Values.ingress.host | quote }}
+    - host: {{ $ing.host | quote }}
       http:
         paths:
-          - path: {{ .Values.ingress.path | default "/" | quote }}
-            pathType: {{ .Values.ingress.pathType | default "Prefix" | quote }}
+          - path: {{ default "/" $ing.path | quote }}
+            pathType: {{ default "Prefix" $ing.pathType | quote }}
             backend:
               service:
                 name: frontend
