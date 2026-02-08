@@ -3,7 +3,7 @@ backend:
 
   image:
     repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-backend
-    tag: "REPLACE_WITH_SHA"
+    tag: "sha-f7f844f"
     pullPolicy: IfNotPresent
 
   service:
