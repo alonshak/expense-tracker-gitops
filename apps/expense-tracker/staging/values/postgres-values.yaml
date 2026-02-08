@@ -17,3 +17,23 @@ postgres:
     name: expense-tracker-db
     userKey: POSTGRES_USER
     passwordKey: POSTGRES_PASSWORD
+
+externalSecrets:
+  enabled: true
+
+  aws:
+    region: us-east-1
+    secretName: expense-tracker/staging/db
+
+  # ה-Secret שייווצר בתוך ה-namespace staging
+  targetK8sSecretName: expense-tracker-db
+
+  operator:
+    namespace: external-secrets
+    serviceAccountName: external-secrets
+
+  keys:
+    DATABASE_USER: DATABASE_USER
+    DATABASE_PASSWORD: DATABASE_PASSWORD
+    POSTGRES_USER: POSTGRES_USER
+    POSTGRES_PASSWORD: POSTGRES_PASSWORD
