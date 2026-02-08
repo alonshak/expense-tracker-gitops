@@ -16,3 +16,7 @@ frontend:
     host: app.al-shak.online
     path: /
     pathType: Prefix
+    tlsEnabled: true
+    clusterIssuer: letsencrypt-prod
+    tlsSecretName: frontend-tls
+

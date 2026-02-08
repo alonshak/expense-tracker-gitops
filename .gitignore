@@ -16,53 +16,7 @@ crash.*.log
 **/charts/*/charts/
 **/charts/*/Chart.lock
 
-# Secrets (אם יהיו)
-*.pem
-*.key
-*.crt
-.env
-# OS/IDE
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-
-# Terraform/Terragrunt
-.terraform/
-*.tfstate
-*.tfstate.*
-.terragrunt-cache/
-crash.log
-crash.*.log
-
-# Helm build artifacts
-**/charts/*/charts/
-**/charts/*/Chart.lock
-
-# Secrets (אם יהיו)
-*.pem
-*.key
-*.crt
-.env
-# OS/IDE
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-
-# Terraform/Terragrunt
-.terraform/
-*.tfstate
-*.tfstate.*
-.terragrunt-cache/
-crash.log
-crash.*.log
-
-# Helm build artifacts
-**/charts/*/charts/
-**/charts/*/Chart.lock
-
-# Secrets (אם יהיו)
+# Secrets (if any)
 *.pem
 *.key
 *.crt

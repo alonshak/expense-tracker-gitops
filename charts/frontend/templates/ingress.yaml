@@ -7,11 +7,22 @@ metadata:
   {{- if $ing.className }}
   annotations:
     kubernetes.io/ingress.class: {{ $ing.className | quote }}
+    {{- if (default false $ing.tlsEnabled) }}
+    cert-manager.io/cluster-issuer: {{ $ing.clusterIssuer | default "letsencrypt-prod" | quote }}
+    {{- end }}
   {{- end }}
 spec:
   {{- if $ing.className }}
   ingressClassName: {{ $ing.className | quote }}
   {{- end }}
+
+  {{- if (default false $ing.tlsEnabled) }}
+  tls:
+    - hosts:
+        - {{ $ing.host | quote }}
+      secretName: {{ $ing.tlsSecretName | default "frontend-tls" | quote }}
+  {{- end }}
+
   rules:
     - host: {{ $ing.host | quote }}
       http:

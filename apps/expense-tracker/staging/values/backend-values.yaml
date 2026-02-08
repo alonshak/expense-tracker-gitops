@@ -3,7 +3,7 @@ backend:
 
   image:
     repository: 412353803789.dkr.ecr.us-east-1.amazonaws.com/expense-tracker-backend
-    tag: latest
+    tag: "REPLACE_WITH_SHA"
     pullPolicy: IfNotPresent
 
   service:
@@ -11,9 +11,11 @@ backend:
     port: 5000
 
   env:
-    DATABASE_URL: postgresql://expense_user:expense_pass@postgres:5432/expense_db
     DATABASE_HOST: postgres
     DATABASE_PORT: "5432"
     DATABASE_NAME: expense_db
-    DATABASE_USER: expense_user
-    DATABASE_PASSWORD: expense_pass
+
+  dbSecret:
+    name: expense-tracker-db
+    userKey: DATABASE_USER
+    passwordKey: DATABASE_PASSWORD

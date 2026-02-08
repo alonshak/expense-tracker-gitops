@@ -8,3 +8,11 @@ service:
 persistence:
   enabled: true
   size: 5Gi
+
+env:
+  POSTGRES_DB: "expense_db"
+
+dbSecret:
+  name: expense-tracker-db
+  userKey: POSTGRES_USER
+  passwordKey: POSTGRES_PASSWORD

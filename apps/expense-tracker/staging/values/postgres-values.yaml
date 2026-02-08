@@ -12,5 +12,8 @@ postgres:
 
   env:
     POSTGRES_DB: expense_db
-    POSTGRES_USER: expense_user
-    POSTGRES_PASSWORD: expense_pass
+
+  dbSecret:
+    name: expense-tracker-db
+    userKey: POSTGRES_USER
+    passwordKey: POSTGRES_PASSWORD
