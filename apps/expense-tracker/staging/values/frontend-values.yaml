@@ -19,4 +19,5 @@ frontend:
     tlsEnabled: true
     clusterIssuer: letsencrypt-prod
     tlsSecretName: frontend-tls
-
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
