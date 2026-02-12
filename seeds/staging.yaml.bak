@@ -7,14 +7,14 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/alonshak/expense-tracker-app.git
+    repoURL: https://github.com/alonshak/expense-tracker-gitops.git
     targetRevision: main
-    path: deploy/charts/expense-tracker
+    path: charts/expense-tracker
     helm:
       valueFiles:
-        - ../../values/staging/backend-values.yaml
-        - ../../values/staging/frontend-values.yaml
-        - ../../values/staging/postgres-values.yaml
+        - ../../apps/expense-tracker/staging/values/backend-values.yaml
+        - ../../apps/expense-tracker/staging/values/frontend-values.yaml
+        - ../../apps/expense-tracker/staging/values/postgres-values.yaml
 
   destination:
     server: https://kubernetes.default.svc
