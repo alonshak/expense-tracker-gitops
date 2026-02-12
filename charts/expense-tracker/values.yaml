@@ -3,7 +3,7 @@ frontend: {}
 postgres: {}
 
 externalSecrets:
-  enabled: false
+  enabled: true
 
   aws:
     region: us-east-1
